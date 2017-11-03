@@ -21,16 +21,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', (req, res) => {
-    res.send({
-        response: 'ok'
-    })
-});
-
-app.get('/app/info', (req, res) => {
-    res.send('This is some applicative info');
-})
-
 authRoutes(app);
 
 if (process.env.NODE_ENV === 'production') {
