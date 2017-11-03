@@ -22,7 +22,11 @@ class Dashboard extends Component {
 
     render() {
         return (
-            <h1>Dashboard</h1>
+            <div>
+                <h1>Dashboard</h1>
+                <span>This is some text</span>
+            </div>
+            
             // <div className="Editor">
             //     <Editor
             //         editorState={this.state.editorState}

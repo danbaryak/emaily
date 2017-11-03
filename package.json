@@ -8,7 +8,8 @@
     "server": "nodemon index.js",
     "client": "npm run start --prefix client",
     "watch-css": "npm run watch-css --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run watch-css\""
+    "dev": "concurrently \"npm run server\" \"npm run client\" \"npm run watch-css\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "author": "",
   "license": "ISC",
