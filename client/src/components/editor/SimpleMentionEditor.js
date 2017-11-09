@@ -7,54 +7,54 @@ import mentions from './mentions';
 
 export default class SimpleMentionEditor extends Component {
 
-  constructor(props) {
-    super(props);
-    this.mentionPlugin = createMentionPlugin();
-  }
+	constructor(props) {
+		super(props);
+		this.mentionPlugin = createMentionPlugin();
+	}
 
-  state = {
-    editorState: EditorState.createEmpty(),
-    suggestions: mentions,
-  };
+	state = {
+		editorState: EditorState.createEmpty(),
+		suggestions: mentions,
+	};
 
-  onChange = (editorState) => {
-    this.setState({
-      editorState,
-    });
-  };
+	onChange = (editorState) => {
+		this.setState({
+			editorState,
+		});
+	};
 
-  onSearchChange = ({ value }) => {
-    this.setState({
-      suggestions: defaultSuggestionsFilter(value, mentions),
-    });
-  };
+	onSearchChange = ({ value }) => {
+		this.setState({
+			suggestions: defaultSuggestionsFilter(value, mentions),
+		});
+	};
 
-  onAddMention = () => {
-    // get the mention object selected
-  }
+	onAddMention = () => {
+		// get the mention object selected
+	}
 
-  focus = () => {
-    this.editor.focus();
-  };
+	focus = () => {
+		this.editor.focus();
+	};
 
-  render() {
-    const { MentionSuggestions } = this.mentionPlugin;
-    const plugins = [this.mentionPlugin];
+	render() {
+		const { MentionSuggestions } = this.mentionPlugin;
+		const plugins = [this.mentionPlugin];
 
-    return (
-      <div className="editor" onClick={this.focus}>
-        <Editor
-          editorState={this.state.editorState}
-          onChange={this.onChange}
-          plugins={plugins}
-          ref={(element) => { this.editor = element; }}
-        />
-        <MentionSuggestions
-          onSearchChange={this.onSearchChange}
-          suggestions={this.state.suggestions}
-          onAddMention={this.onAddMention}
-        />
-      </div>
-    );
-  }
+		return (
+			<div className="editor" onClick={this.focus}>
+				<Editor
+					editorState={this.state.editorState}
+					onChange={this.onChange}
+					plugins={plugins}
+					ref={(element) => { this.editor = element; }}
+				/>
+				<MentionSuggestions
+					onSearchChange={this.onSearchChange}
+					suggestions={this.state.suggestions}
+					onAddMention={this.onAddMention}
+				/>
+			</div>
+		);
+	}
 }

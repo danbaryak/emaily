@@ -25,8 +25,7 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <h1>Dashboard</h1>
-                <span>This is some text</span>
+                <h4>Posts</h4>
                 <SimpleMentionEditor />
                 <SimpleMentionEditor />
             </div>
