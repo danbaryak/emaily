@@ -16,6 +16,8 @@
   "dependencies": {
     "axios": "^0.16.2",
     "draft-js": "^0.10.3",
+    "draft-js-mention-plugin": "^2.0.0-rc10",
+    "draft-js-plugins-editor": "^2.0.0-rc8",
     "materialize-css": "^0.100.2",
     "node-sass-chokidar": "0.0.3",
     "react": "^15.6.1",
