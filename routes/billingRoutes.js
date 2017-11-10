@@ -1,7 +1,6 @@
 const requireLogin = require('../middlewares/requireLogin');
 
 module.exports = (app) => {
-
     app.post('/api/credits', requireLogin,  async (req, res) => {
         const { credits } = req.body;
         req.user.credits += credits;
@@ -14,5 +13,4 @@ module.exports = (app) => {
         const user = await req.user.save();
         res.send(user);
     });
-
 }
