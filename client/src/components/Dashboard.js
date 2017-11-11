@@ -3,6 +3,7 @@ import { Editor, EditorState, RichUtils } from 'draft-js';
 import './Dashboard.css';
 import 'draft-js-mention-plugin/lib/plugin.css';
 import SimpleMentionEditor from './editor/SimpleMentionEditor';
+import { Link } from 'react-router-dom';
 
 class Dashboard extends Component {
 
@@ -25,9 +26,11 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <h4>Posts</h4>
-                <SimpleMentionEditor />
-                <SimpleMentionEditor />
+                <div className="fixed-action-btn">
+                    <Link to="/surveys/new" className="btn-floating btn-large red">
+                        <i className="material-icons">add</i>
+                    </Link>
+                </div>
             </div>
         );
     }
