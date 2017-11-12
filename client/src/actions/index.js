@@ -1,17 +1,26 @@
 import axios from 'axios';
 import { FETCH_USER } from './types';
+import { post, get } from './requestHelpers';
 
-export const fetchUser = () => async dispatch => {
-    const res = await axios.get('/api/current_user');
-    dispatch({ type: FETCH_USER, payload: res.data });
-}
+export const fetchUser = () => get({
+    uri: '/api/current_user', 
+    action: FETCH_USER
+});
 
-export const handleToken = (token) => async dispatch => {
-    const res = await axios.post('/api/credits', token);
-    dispatch({ type: FETCH_USER, payload: res.data });
-}
+export const handleToken = token => post({
+    uri: '/api/credits', 
+    value: token, 
+    action: FETCH_USER
+});
 
-export const initCredits = () => async dispatch => {
-    const res = await axios.post('/api/credits/init');
-    dispatch({ type: FETCH_USER, payload: res.data });
-}
+export const initCredits = () => post({
+    uri: '/api/credits/init', 
+    action: FETCH_USER
+});
+
+export const submitSurvey = (values, history) => post({
+    uri: '/api/surveys', 
+    value: values, 
+    action: FETCH_USER,
+    then: () => history.push('/surveys')
+});

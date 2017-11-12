@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { EditorState } from 'draft-js';
 import Editor from 'draft-js-plugins-editor';
+import {stateToHTML} from 'draft-js-export-html';
 import createMentionPlugin, { defaultSuggestionsFilter } from 'draft-js-mention-plugin';
 import createLinkifyPlugin from 'draft-js-linkify-plugin';
 import editorStyles from './editorStyles.css';
 import mentions from './mentions';
+import addLinkPlugin from './plugins/addLinkPlugin';
 
 export default class SimpleMentionEditor extends Component {
 
@@ -17,6 +19,7 @@ export default class SimpleMentionEditor extends Component {
 	state = {
 		editorState: EditorState.createEmpty(),
 		suggestions: mentions,
+		readOnly: false
 	};
 
 	onChange = (editorState) => {
@@ -41,25 +44,30 @@ export default class SimpleMentionEditor extends Component {
 
 	render() {
 		const { MentionSuggestions } = this.mentionPlugin;
-		const plugins = [ this.mentionPlugin, this.linkifyPlugin ];
+		const plugins = [ this.mentionPlugin, this.linkifyPlugin, addLinkPlugin ];
 
 		return (
 			<div className="editor" onClick={this.focus}>
 				<div style={{ margin: '10px 0 10px 0' }}>
-					<button className="btn">Entity</button>
+					<button 
+						className="waves-effect waves-teal btn-flat" 
+						onClick={() => this.setState({ readOnly: ! this.state.readOnly })}
+					>
+						Toggle Read Only
+					</button>
 				</div>
 				<Editor
 					editorState={this.state.editorState}
 					onChange={this.onChange}
 					plugins={plugins}
 					ref={(element) => { this.editor = element; }}
+					readOnly={this.state.readOnly}
 				/>
 				<MentionSuggestions
 					onSearchChange={this.onSearchChange}
 					suggestions={this.state.suggestions}
 					onAddMention={this.onAddMention}
 				/>
-				<span>{this.state.editorState.getCurrentContent().text}</span>
 			</div>
 		);
 	}
