@@ -40,9 +40,9 @@ const addLinkPluginPlugin = {
 		const editorState = getEditorState();
 		const selection = editorState.getSelection();
 		// Don't do anything if no text is selected.
-		if (selection.isCollapsed()) {
-			return;
-		}
+		// if (selection.isCollapsed()) {
+		// 	return;
+		// }
 		if (KeyBindingUtil.hasCommandModifier(event) && event.which === 75) {
 			return 'add-link'
 		}
