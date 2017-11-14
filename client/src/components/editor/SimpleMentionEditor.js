@@ -51,7 +51,7 @@ export default class SimpleMentionEditor extends Component {
 						className="waves-effect waves-teal btn-flat" 
 						onClick={() => this.setState({ readOnly: ! this.state.readOnly })}
 					>
-						Toggle Read Only
+						{ this.state.readOnly ? 'Set Writable' : 'Set Read Only' }
 					</button>
 				</div>
 				<Editor

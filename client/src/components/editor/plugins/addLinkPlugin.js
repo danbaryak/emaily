@@ -28,6 +28,7 @@ export const Link = ({contentState, entityKey, children}) => {
 			href={url}
 			rel="noopener noreferrer"
 			target="_blank"
+			style={{ fontSize: '18px' }}
 			aria-label={url}
 		>
 			{children}
