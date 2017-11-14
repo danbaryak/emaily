@@ -9,13 +9,15 @@ class Payments extends Component {
     render() {
         return (
             <div>
-                <button 
+                <button
+                    style={{ marginRight: '10px' }} 
                     className="btn" 
                     onClick={ () => this.props.initCredits() }
                 >
                     Init Credits
                 </button>
                 <button 
+                    style={{ marginRight: '10px' }}
                     className="btn" 
                     onClick={ () => this.props.handleToken({ credits: 5 }) }
                 >

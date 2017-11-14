@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { FETCH_USER } from './types';
 import { post, get } from './requestHelpers';
 

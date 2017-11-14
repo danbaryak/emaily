@@ -37,8 +37,6 @@ export const Link = ({contentState, entityKey, children}) => {
 
 const addLinkPluginPlugin = {
 	keyBindingFn(event, { getEditorState }) {
-		const editorState = getEditorState();
-		const selection = editorState.getSelection();
 		// Don't do anything if no text is selected.
 		// if (selection.isCollapsed()) {
 		// 	return;
